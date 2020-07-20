@@ -14,4 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('v1/projects', 'CreateProjectController');
+Route::group(['prefix' => 'v1'], function () {
+    Route::post('projects', 'CreateProjectController')->name('projects.create');
+
+    Route::post('tasks', 'CreateTaskController')->name('tasks.create');
+    Route::delete('tasks/{id}', 'DeleteTaskController')->name('tasks.delete');
+    Route::put('tasks/{id}', 'UpdateTaskController')->name('tasks.update');
+});
