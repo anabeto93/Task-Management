@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\Project\ProjectContract;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    /** @var ProjectContract */
+    private $project;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ProjectContract $projectContract)
     {
         $this->middleware('auth');
+        $this->project = $projectContract;
     }
 
     /**
@@ -23,6 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $projects = $this->project->all();
+        
+        return view('home')->withProjects($projects);
     }
 }

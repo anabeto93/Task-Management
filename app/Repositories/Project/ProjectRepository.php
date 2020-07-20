@@ -14,4 +14,16 @@ class ProjectRepository implements ProjectContract
 
         return $project;
     }
+
+    public function all()
+    {
+        return Project::all();
+    }
+
+    public function find($id): ?Project
+    {
+        $project = Project::find($id);
+
+        return $project;
+    }
 }

@@ -41,4 +41,11 @@ class ProjectService
             "project" => $project,
         ]);
     }
+
+    public function getTasks($id)
+    {
+        $project = $this->project->find($id);
+
+        return $project->tasks;
+    }
 }

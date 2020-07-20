@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('projects/{id}', 'TaskController@show')->name('tasks.view');
+Route::post('tasks/sort', 'SortTasksController')->name('tasks.sort');
+
