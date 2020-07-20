@@ -20,4 +20,5 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('tasks', 'CreateTaskController')->name('tasks.create');
     Route::delete('tasks/{id}', 'DeleteTaskController')->name('tasks.delete');
     Route::put('tasks/{id}', 'UpdateTaskController')->name('tasks.update');
+    Route::post('tasks/sort', 'SortTasksController')->name('tasks.sort');
 });
