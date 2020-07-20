@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
             <ul id="tasks" class="sortable">
-                    @foreach($tasks as $task) 
+                    @foreach($tasks as $task)
                     <li class="" data-task-id="{{ $task->id }}">{{ $task->name }}</li>
                     @endforeach
                 </ul>
@@ -17,7 +17,9 @@
 @endsection
 
 @push('scripts')
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src ="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script>
     $(document).ready(function() {
         $.ajaxSetup({
@@ -47,6 +49,7 @@
 </script>
 @endpush
 
-@push('styles') 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+@push('styles')
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+          rel = "stylesheet">
 @endpush

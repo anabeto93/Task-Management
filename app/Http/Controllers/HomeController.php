@@ -29,7 +29,8 @@ class HomeController extends Controller
     public function index()
     {
         $projects = $this->project->all();
-        
-        return view('home')->withProjects($projects);
+        $url = explode("/projects/",route("tasks.view", ['id' => 1]))[0] . "/projects";
+
+        return view('home')->withProjects($projects)->withUrl($url);
     }
 }

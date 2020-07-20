@@ -13,7 +13,7 @@
                         <label for="projects">Select Project</label>
                         <select class="form-control" id="projects">
                         @foreach($projects as $project)
-                            <option value="{{ $project->id }}" {{ $project->id ==1 'selected': ''}}>{{ $project->name }} </option>
+                            <option value="{{ $project->id }}" {{ $project->id == 1 ? "selected": ""}}>{{ $project->name }} </option>
                         @endforeach
                         </select>
                         <button type="submit" class="btn btn-primary">View Project</button>
@@ -25,7 +25,7 @@
 </div>
 @endsection
 
-@push('scripts') 
+@push('scripts')
 <script>
     $(document).ready(function() {
         let form = $('#projects_form');
